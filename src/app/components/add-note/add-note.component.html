@@ -1,0 +1,35 @@
+<section class="page-header">
+    <div class="page-header-content">
+        <h2>Add Course</h2>
+    </div>
+</section>
+<!-- Student Form Section -->
+<section class="form-section" id="student-form">
+    <div class="container">
+        <form id="studentForm" class="student-form" [formGroup]="addNoteForm">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="note">Note</label>
+                    <input type="text" id="note" formControlName="note" name="note" required>
+                    <div class="text-danger"
+                        *ngIf="addNoteForm.controls['note'].invalid && (addNoteForm.controls['note'].touched || addNoteForm.controls['note'].dirty)">
+                        <div *ngIf="addNoteForm.controls['note'].errors?.['required']">note is required</div>
+                        <div *ngIf="addNoteForm.controls['note'].errors?.['min']">note must be at least 0</div>
+                        <div *ngIf="addNoteForm.controls['note'].errors?.['max']">note must be at most 20</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="evaluation">Evaluation</label>
+                    <input type="text" formControlName="evaluation" id="evaluation" name="evaluation">
+                    <div class="text-danger"
+                        *ngIf="addNoteForm.controls['evaluation'].invalid && (addNoteForm.controls['evaluation'].touched || addNoteForm.controls['evaluation'].dirty)">
+                        <div *ngIf="addNoteForm.controls['evaluation'].errors?.['required']">evaluation is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button style="margin: 0 auto" type="submit" (click)="addNote()" class="btn btn-primary">Add</button>
+            </div>
+        </form>
+    </div>
+</section>

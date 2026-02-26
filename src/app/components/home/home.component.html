@@ -1,0 +1,138 @@
+  <!-- home.component.html  -->
+<div class="home-container">
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Bienvenue sur notre Plateforme Éducative</h1>
+            <p class="hero-subtitle">Découvrez des cours exceptionnels dispensés par des enseignants passionnés</p>
+        </div>
+    </section>
+    
+
+    <!-- Featured Courses Section -->
+    <section class="courses-section">
+      <div class="summary-cards">
+      <div class="summary-card">
+        <div class="summary-icon">👥</div>
+        <div class="summary-content">
+          <span class="summary-number" id="totalStudents">{{ totalStudents }}</span>
+          <span class="summary-label">Total Students</span>
+        </div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-icon">📚</div>
+        <div class="summary-content">
+          <span class="summary-number">{{ totalCourses }}</span>
+          <span class="summary-label">Total Courses</span>
+        </div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-icon">📈</div>
+        <div class="summary-content">
+          <span class="summary-number">99%</span>
+          <span class="summary-label">Average Grade</span>
+        </div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-icon">👨‍🏫</div>
+        <div class="summary-content">
+          <span class="summary-number">{{ totalTeachers }}</span>
+          <span class="summary-label">Total Teachers</span>
+        </div>
+      </div>
+    </div>
+        <div class="section-header">
+            <h2 class="section-title">Cours Populaires</h2>
+            <p class="section-subtitle">Nos cours les plus appréciés par les étudiants</p>
+        </div>
+
+        <div class="courses-grid">
+            <div class="course-card" *ngFor="let course of featuredCourses">
+                <div class="course-header" [style.background]="course.color">
+                    <span class="course-category">{{ course.category }}</span>
+                    <span class="course-level">{{ course.level }}</span>
+                </div>
+                <div class="course-body">
+                    <h3 class="course-title">{{ course.courseName }}</h3>
+                    <p class="course-description">{{ course.description }}</p>
+                    <div class="course-info">
+                        <div class="info-item">
+                            <span class="icon">👨‍🏫</span>
+                            <span>{{ course.teacher }}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="icon">⏱️</span>
+                            <span>{{ course.duration }}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="icon">👥</span>
+                            <span>{{ course.students }} étudiants</span>
+                        </div>
+                    </div>
+                    <div class="course-footer">
+                        <div class="course-rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span class="rating-number">{{ course.rating }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teachers Section -->
+    <section class="teachers-section">
+        <div class="section-header">
+            <h2 class="section-title">Nos Enseignants</h2>
+            <p class="section-subtitle">Des experts passionnés dans leur domaine</p>
+        </div>
+
+        <div class="teachers-grid">
+            <div class="teacher-card" *ngFor="let teacher of featuredTeachers">
+                <div class="teacher-avatar">
+                    <div class="avatar-circle" [style.background]="teacher.color">
+                        {{ teacher.initials }}
+                    </div>
+                </div>
+                <div class="teacher-info">
+                    <h3 class="teacher-name">{{ teacher.name }}</h3>
+                    <p class="teacher-specialty">{{ teacher.specialty }}</p>
+                    <p class="teacher-bio">{{ teacher.bio }}</p>
+                    <div class="teacher-stats">
+                        <div class="stat">
+                            <span class="stat-value">{{ teacher.courses }}</span>
+                            <span class="stat-label">Cours</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">{{ teacher.students }}</span>
+                            <span class="stat-label">Étudiants</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="section-header">
+            <h2 class="section-title">Ce que disent nos étudiants</h2>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card" *ngFor="let testimonial of testimonials">
+                <div class="testimonial-rating">
+                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                </div>
+                <p class="testimonial-text">"{{ testimonial.text }}"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">{{ testimonial.initials }}</div>
+                    <div class="author-info">
+                        <p class="author-name">{{ testimonial.name }}</p>
+                        <p class="author-course">{{ testimonial.course }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>

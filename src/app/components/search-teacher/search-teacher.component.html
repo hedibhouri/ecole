@@ -1,0 +1,45 @@
+<section class="page-header">
+    <div class="page-header-content">
+        <h2>Search Teachers by Specialty</h2>
+    </div>
+</section>
+<div class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <form #searchForm="ngForm" (ngSubmit)="search()">
+                    <div class="form-group">
+                        <label for="rech">Specialty <span class="text-danger">*</span></label>
+                        <input 
+                            type="text" 
+                            class="form-control mt-2" 
+                            id="rech"
+                            name="rech" 
+                            [(ngModel)]="rech" 
+                            #rechCtrl="ngModel"
+                            required 
+                            placeholder="Enter specialty">
+                        <div *ngIf="rechCtrl.invalid && rechCtrl.touched" class="text-danger mt-1">
+                            Specialty is required.
+                        </div>
+                    </div>
+
+                    <div class="form-group text-center mt-3">
+                        <button style="margin: 0 auto" type="submit" [disabled]="searchForm.invalid" class="btn btn-primary">Search</button>
+                    </div>
+
+                </form>
+
+                <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+                    {{ errorMessage }}
+                </div>
+
+                <div *ngIf="teachers.length === 0 && searched" class="alert alert-info mt-3">
+                    No teachers found for this specialty.
+                </div>
+
+                <app-teacher *ngFor="let elt of teachers" [teacher]="elt"></app-teacher>
+            </div>
+        </div>
+    </div>
+</div>

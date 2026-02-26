@@ -1,0 +1,46 @@
+<header>
+  <div class="header-top">
+    <div class="logo">
+      <a routerLink="/">
+        <div class="crest">BH</div>
+      </a>
+      <div class="teacher-name">
+        <h1>Bhouri Hedi</h1>
+        <p>M3A BH A9ra w ethana</p>
+      </div>
+    </div>
+    <div *ngIf="!isLoggedIn()">
+      Welcome 
+    </div>
+    <div *ngIf="isLoggedIn()">
+      Welcome {{user.firstName}} {{user.lastName}}
+    </div>
+    <div class="header-contact social-links">
+      <div>
+        <a href="#linkedin" title="LinkedIn">in</a>
+      </div>
+      <div>
+        <a href="#twitter" title="Twitter">𝕏</a>
+      </div>
+      <div>
+        <a href="#email" title="Email">✉</a>
+      </div>
+      <div>
+        <a href="#portfolio" title="Portfolio">📁</a>
+      </div>
+    </div>
+  </div>
+  <nav>
+    <ul>
+      <li ><a routerLink="/">Home</a></li>
+      <li *ngIf="isLoggedIn() && user.role == 'admin'"><a routerLink="/dashbordAdmin">Dashbord</a></li>
+      <li *ngIf="isLoggedIn() && user.role == 'admin'"><a routerLink="/courseAffectation">Course Affectation</a></li>
+      <li *ngIf="isLoggedIn() && user.role == 'admin'"><a routerLink="/serchTeacher">Search Teacher</a></li>
+      <li *ngIf="isLoggedIn() && user.role == 'teacher'"><a routerLink="/addCourse">Add Course</a></li>
+      <li *ngIf="isLoggedIn() && user.role != 'admin'"><a routerLink="/myCourses">My Courses</a></li>
+      <li *ngIf="!isLoggedIn()"><a routerLink="/signup">SignUp</a></li>
+      <li *ngIf="!isLoggedIn()"><a routerLink="/login">Login</a></li>
+      <li *ngIf="isLoggedIn()"><button (click)="logout()" class="btn btn-danger">Logout</button></li>
+    </ul>
+  </nav>
+</header>

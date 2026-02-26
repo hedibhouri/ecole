@@ -1,0 +1,111 @@
+<section class="page-header">
+    <div class="page-header-content">
+        <h2>SignUp</h2>
+    </div>
+</section>
+<!-- Student Form Section -->
+<section class="form-section" id="student-form">
+    <div class="container">
+        <form id="studentForm" class="student-form" [formGroup]="signupForm">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="firstName">First Name </label>
+                    <input type="text" id="firstName" formControlName="firstName" name="firstName" required>
+                    <div class="text-danger"
+                        *ngIf="signupForm.controls['firstName'].invalid && (signupForm.controls['firstName'].touched || signupForm.controls['firstName'].dirty)">
+                        <div *ngIf="signupForm.controls['firstName'].errors?.['required']">First name is required</div>
+                        <div *ngIf="signupForm.controls['firstName'].errors?.['minlength']">First name must have at
+                            least 3
+                            chars</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName">Last Name </label>
+                    <input type="text" id="lastName" formControlName="lastName" name="lastName" required>
+                    <div class="text-danger"
+                        *ngIf="signupForm.controls['lastName'].invalid && (signupForm.controls['lastName'].touched || signupForm.controls['lastName'].dirty)">
+                        <div *ngIf="signupForm.controls['lastName'].errors?.['required']">Last name is required</div>
+                        <div *ngIf="signupForm.controls['lastName'].errors?.['minlength']">Last name must have at least
+                            5
+                            chars</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address </label>
+                    <input type="email" id="email" formControlName="email" name="email" required>
+                    <div class="text-danger"
+                        *ngIf="signupForm.controls['email'].invalid && (signupForm.controls['email'].touched || signupForm.controls['email'].dirty)">
+                        <div *ngIf="signupForm.controls['email'].errors?.['required']">Email is required</div>
+                        <div *ngIf="signupForm.controls['email'].errors?.['email']">Invalid email format</div>
+                    </div>
+                </div>
+                <div class="form-group" *ngIf="path != '/signupAdmin'">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" formControlName="tel" id="phone" name="tel">
+                    <div class="text-danger"
+                        *ngIf="signupForm.controls['tel'].invalid && (signupForm.controls['tel'].touched || signupForm.controls['tel'].dirty)">
+                        <div *ngIf="signupForm.controls['tel'].errors?.['required']">Phone number is required</div>
+                        <div
+                            *ngIf="signupForm.controls['tel'].errors?.['minlength'] || signupForm.controls['tel'].errors?.['maxlength']">
+                            Phone number must have 8
+                            chars</div>
+                    </div>
+                </div>
+                <div class="form-group" *ngIf="path != '/signupAdmin'">
+                    <label for="adresse">Adresse</label>
+                    <input type="text" formControlName="adresse" id="adresse" name="adresse">
+                    <div class="text-danger"
+                        *ngIf="signupForm.controls['adresse'].invalid && (signupForm.controls['adresse'].touched || signupForm.controls['adresse'].dirty)">
+                        <div *ngIf="signupForm.controls['adresse'].errors?.['required']">Adresse is required</div>
+                        <div *ngIf="signupForm.controls['adresse'].errors?.['minlength']">Adresse must have at least 10
+                            chars</div>
+                    </div>
+                </div>
+                <div class="form-group" *ngIf="path =='/signupTeacher'">
+                    <label for="speciality">Speciality</label>
+                    <input type="text" formControlName="speciality" id="speciality" name="speciality">
+                    <div class="text-danger"
+                        *ngIf="signupForm.controls['speciality'].invalid && (signupForm.controls['speciality'].touched || signupForm.controls['speciality'].dirty)">
+                        <div *ngIf="signupForm.controls['speciality'].errors?.['required']">Speciality is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Password</label>
+                    <input type="password" formControlName="pwd" id="pwd" name="pwd">
+                    <div class="text-danger"
+                        *ngIf="signupForm.controls['pwd'].invalid && (signupForm.controls['pwd'].touched || signupForm.controls['pwd'].dirty)">
+                        <div *ngIf="signupForm.controls['pwd'].errors?.['required']">Password is required</div>
+                        <div *ngIf="signupForm.controls['pwd'].errors?.['minlength']">Password must have at least 4
+                            chars
+                        </div>
+                        <div *ngIf="signupForm.controls['pwd'].errors?.['maxlength']">Password must have at most 8 chars
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="path =='/signupTeacher'">
+                    <div class="form-group" style="display : none">
+                        <input type="file" class="form-control" #filePicker (change)="onImageSelected($event)">
+                    </div>
+                    <div class="text-center ;">
+                        <button class="btn btn-warning" style="border-radius: 5%; " (click)="filePicker.click()">Your
+                            CV</button>
+                    </div>
+                </div>
+                <div *ngIf="path =='/signup'">
+                    <div class="form-group" style="display : none">
+                        <input type="file" class="form-control" #filePicker (change)="onImageSelected($event)">
+                    </div>
+                    <div class="text-center ;">
+                        <button class="btn btn-warning" style="border-radius: 5%; " (click)="filePicker.click()">Your
+                            Photo</button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button style="margin: 0 auto" type="submit" (click)="signup()" class="btn btn-primary">SignUp</button>
+                <span class="text-danger">{{errorMsg}}</span>
+            </div>
+        </form>
+    </div>
+</section>

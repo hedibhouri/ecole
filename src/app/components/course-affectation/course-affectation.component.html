@@ -1,0 +1,38 @@
+<section class="page-header">
+    <div class="page-header-content">
+        <h2>assign a course to a student</h2>
+    </div>
+</section>
+<!-- Student Form Section -->
+<section class="form-section" id="student-form">
+    <div class="container">
+        <form class="student-form" #affectForm="ngForm" (ngSubmit)="affectCourse()">
+            <div class="form-grid" style="display: flex; justify-content: center;">
+                <div class="form-group">
+                    <select [(ngModel)]="studentId" name="studentId"   class="form-control big-select">
+                        <option [ngValue]="undefined" disabled selected>Choose a student</option>
+                        <option *ngFor="let elt of students" [value]="elt._id">
+                            {{elt.firstName}} {{elt.lastName}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-grid" style="display: flex; justify-content: center;">
+                <div class="form-group">
+                    <select [(ngModel)]="courseId" name="courseId"   class="form-control big-select">
+                        <option [ngValue]="undefined" disabled selected>Choose a course</option>
+                        <option *ngFor="let elt of courses" [value]="elt._id">
+                            {{elt.courseName}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button style="margin: 0 auto" type="submit" class="btn btn-primary">Assign</button>
+            </div>
+            <div class="text-danger" style="text-align: center;">
+                {{errorMsg}}
+            </div>
+        </form>
+    </div>
+</section>

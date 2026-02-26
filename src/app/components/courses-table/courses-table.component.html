@@ -1,0 +1,34 @@
+<div class="table-header">
+    <h4>Courses</h4>
+</div>
+
+<table class="student-table" id="studentTable">
+    <thead>
+        <tr>
+            <th>Course ID</th>
+            <th>Name</th>
+            <th>Duration</th>
+            <th>Description</th>
+            <th>Teacher</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let elm of t">
+            <td>{{elm._id}}</td>
+            <td>{{elm.courseName}}</td>
+            <td>{{elm.duration}}</td>
+            <td>{{elm.desc}}</td>
+            <td>
+                <p>Name : {{elm.teacherId.firstName}} {{elm.teacherId.lastName}}</p>
+                <p> Speciality : {{elm.teacherId.speciality}}</p>
+            </td>
+            <td>
+                <button (click)="goToInfo(elm._id)" class="action-btn edit" title="info">🔍</button>
+                <button (click)="seeStudents(elm._id)" class="action-btn edit" title="stdInfo">👥</button>
+                <button (click)="goToEdit(elm._id)" class="action-btn edit" title="Edit">✏️</button>
+                <button (click)="deleteCourse(elm._id)" class="action-btn delete" title="Delete">🗑️</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

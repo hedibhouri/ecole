@@ -1,0 +1,29 @@
+<section class="page-header">
+    <div class="page-header-content">
+        <h2>Add Course</h2>
+    </div>
+</section>
+<!-- Student Form Section -->
+<section class="form-section" id="student-form">
+    <div class="container">
+        <form id="studentForm" class="student-form" [formGroup]="editCourseForm">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="courseName">Course Name </label>
+                    <input type="text" id="courseName" formControlName="courseName" name="courseName" >
+                </div>
+                <div class="form-group">
+                    <label for="duration">Duration en mois</label>
+                    <input type="number" formControlName="duration" id="duration" name="duration">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea formControlName="desc" name="desc" id="desc">Description</textarea>               
+                </div>
+            </div>
+            <div class="form-actions">
+                <button style="margin: 0 auto" type="submit" (click)="editCourse()" class="btn btn-primary">Edit</button>
+            </div>
+        </form>
+    </div>
+</section>

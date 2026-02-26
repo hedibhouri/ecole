@@ -1,0 +1,36 @@
+<div class="home-container">
+    <section class="courses-section">
+        <div class="courses-grid">
+            <div class="course-card">
+                <div class="course-header" [style.background]="course?.color">
+                    <span class="course-category">BH</span>
+                </div>
+                <div class="course-body">
+                    <h3 class="course-title">{{ course?.courseName }}</h3>
+                    <p class="course-description">{{ course?.desc }}</p>
+                    <div class="course-info">
+                        <div class="info-item">
+                            <span class="icon">👨‍🏫</span>
+                            <span>{{ course?.teacherId.firstName }} {{ course?.teacherId.lastName }}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="icon">⏱️</span>
+                            <span>{{ course?.duration }} mois</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="icon">👥</span>
+                            <span>{{ course?.students.length }} étudiants</span>
+                        </div>
+                    </div>
+                    <div class="course-footer">
+                        <div class="course-rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span class="rating-number">{{ course?.rating }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>

@@ -1,0 +1,42 @@
+<section class="page-header">
+    <div class="page-header-content">
+        <h2>Students in this course</h2>
+    </div>
+</section>
+<!-- Student Table -->
+<section class="dashboard-section" id="dashboard">
+    <div class="container">
+        <div class="table-container">
+            <div class="table-header">
+                <h4>Students in this course</h4>
+            </div>
+            <table class="student-table" id="studentTable">
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Note</th>
+                        <th>Evaluation</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let elm of students">
+                        <td>{{elm._id}}</td>
+                        <td>{{elm.firstName}} {{elm.lastName}}</td>
+                        <td>{{elm.tel}}</td>
+                        <td>{{ elm.note || '_' }}</td>
+                        <td>{{ elm.evaluation || '_' }}</td>
+                        <td>
+                            <button  *ngIf="user.role == 'teacher' &&!elm.note && !elm.evaluation" (click)="addNote(elm._id)" class="action-btn edit" title="Add Note">📝</button>
+                            <button   *ngIf="user.role == 'teacher'" (click)="editNote(elm._id)" class="action-btn edit"  title="Edit Note">✏️</button>
+                            <button  *ngIf="user.role == 'teacher'" (click)="deleteNote(elm)" class="action-btn edit" title="Delete Note">🗑️</button>
+                            <button  *ngIf="user.role == 'admin'" (click)="deleteUser(elm)" class="action-btn delete" title="Delete User">🗑️</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

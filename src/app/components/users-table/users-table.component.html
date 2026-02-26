@@ -1,0 +1,51 @@
+<div class="table-header">
+    <h4>Users</h4>
+    <div class="table-controls">
+        <input type="text" id="searchInput" placeholder="User Name..." (input)="onSearch($event)">
+        <select id="courseFilter" (change)="onRoleFilterChange($event)">
+            <option value="">All Roles</option>
+            <option value="Teacher">Teacher</option>
+            <option value="Student">Student</option>
+            <option value="Parent">Parent</option>
+        </select>
+    </div>
+</div>
+
+<table class="student-table" id="studentTable">
+    <thead>
+        <tr>
+            <th>User ID</th>
+            <th>Role</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Adresse</th>
+            <th>Speciality(Teacher)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let elm of t">
+            <td>{{elm._id}}</td>
+            <td>{{elm.role}}</td>
+            <td>{{elm.firstName}}</td>
+            <td>{{elm.lastName}}</td>
+            <td>{{elm.email}}</td>
+            <td>{{elm.tel}}</td>
+            <td>{{elm.adresse}}</td>
+            <td *ngIf="elm.role == 'teacher'">{{elm.speciality}}</td>
+            <td *ngIf="elm.role != 'teacher'">_</td>
+            <td>
+                <!-- HTML -->
+                <select *ngIf="elm.role == 'teacher' && elm.status == false"  (change)="updateTeacherStatus(elm, $any($event.target).value)">
+                    <option value="pending">En attente</option>
+                    <option value="approved">Approuvé</option>
+                    <option value="rejected">Rejeté</option>
+                </select>
+                <button class="action-btn edit" title="info" (click)="viewInfo(elm._id)">🔍</button>
+                <button class="action-btn delete" title="Delete" (click)="deleteUser(elm._id)">🗑️</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

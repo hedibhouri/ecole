@@ -1,0 +1,35 @@
+<section class="page-header">
+    <div class="page-header-content">
+        <h2>Login</h2>
+    </div>
+</section>
+<!-- Student Form Section -->
+<section class="form-section" id="student-form">
+    <div class="container">
+        <form id="studentForm" class="student-form" [formGroup]="loginForm">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="email">Email Address </label>
+                    <input type="email" id="email" formControlName="email" name="email" required>
+                    <div class="text-danger"
+                        *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].touched || loginForm.controls['email'].dirty)">
+                        <div *ngIf="loginForm.controls['email'].errors?.['required']">Email is required</div>
+                        <div *ngIf="loginForm.controls['email'].errors?.['email']">Invalid email format</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Password</label>
+                    <input type="password" formControlName="pwd" id="pwd" name="pwd">
+                    <div class="text-danger"
+                        *ngIf="loginForm.controls['pwd'].invalid && (loginForm.controls['pwd'].touched || loginForm.controls['pwd'].dirty)">
+                        <div *ngIf="loginForm.controls['pwd'].errors?.['required']">Password is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button style="margin: 0 auto" type="submit" (click)="login()" class="btn btn-primary">Login</button>
+                <span class="text-danger">{{errorMsg}}</span>
+            </div>
+        </form>
+    </div>
+</section>

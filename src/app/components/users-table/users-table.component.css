@@ -1,0 +1,18 @@
+/* CSS */
+.status-pending {
+    background-color: #fff3cd;
+    color: #856404;
+    border-color: #ffc107;
+}
+
+.status-approved {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border-color: #198754;
+}
+
+.status-rejected {
+    background-color: #f8d7da;
+    color: #842029;
+    border-color: #dc3545;
+}

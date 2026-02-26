@@ -1,0 +1,51 @@
+<!-- CV Preview -->
+<div class="cv-preview-section">
+    <div class="cv-document">
+        <div class="cv-header">
+            <h1 class="cv-title">Information</h1>
+        </div>
+
+        <div class="cv-content">
+            <div class="cv-photo-box">
+                <img *ngIf="teacher?.photo" [src]="teacher?.photo" alt="CV Photo">
+            </div>
+
+            <div class="cv-column">
+                <div class="cv-field">
+                    <h4>Name</h4>
+                    <p>{{teacher?.firstName}} {{teacher?.lastName}}</p>
+                </div>
+
+                <div class="cv-field">
+                    <h4>Address</h4>
+                    <p>{{teacher?.adresse}}</p>
+                </div>
+
+                <div class="cv-field">
+                    <h4>Email</h4>
+                    <p>{{teacher?.email}}</p>
+                </div>
+            </div>
+
+            <div class="cv-column">
+                <div class="cv-field">
+                    <h4>Phone</h4>
+                    <p>{{teacher?.tel}}</p>
+                </div>
+                <div class="cv-field" *ngIf="teacher?.role === 'parent'">
+                    <h4>Student Name</h4>
+                    <p>{{studentName}}</p>
+                </div>
+                <div class="cv-field" >
+                    <h4>Courses</h4>
+                    <p *ngIf="teacher?.role != 'parent'">{{teacher?.courses.length}}</p>
+                    <p *ngIf="teacher?.role === 'parent'">{{studentCourses}}</p>
+                </div>
+                <div class="cv-field" *ngIf="teacher?.role === 'teacher'">
+                    <h4>Speciality</h4>
+                    <p>{{teacher?.speciality}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
