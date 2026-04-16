@@ -1,59 +1,51 @@
-# Ecole
+🏫 Private School Management System (ERP)
+Une plateforme ERP éducative complète conçue pour digitaliser la gestion des établissements scolaires. Ce projet propose une gestion multi-utilisateurs complexe et une infrastructure Cloud robuste.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.0.
+🌟 Points Forts du Projet
+Architecture Multi-Rôles (4 Rôles) :
 
-## Development server
+Admin : Contrôle total, gestion des utilisateurs, des classes et des ressources.
 
-To start a local development server, run:
+Professeur : Gestion des notes, suivi des absences et partage de supports de cours.
 
-```bash
-ng serve
-```
+Élève : Consultation des notes, emploi du temps et accès aux ressources pédagogiques.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Parent : Suivi en temps réel des performances et de l'assiduité des enfants.
 
-## Code scaffolding
+Gestion Académique : Modules complets pour les classes, les notes, et les matières.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Déploiement Cloud (AWS) : Infrastructure scalable et sécurisée.
 
-```bash
-ng generate component component-name
-```
+🛠 Tech Stack & Cloud Infrastructure
+Frontend : Angular (Interface réactive et Tableaux de bord personnalisés).
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Backend : Node.js & Express.js (API RESTful).
 
-```bash
-ng generate --help
-```
+Base de données : MongoDB (Stockage flexible des données pédagogiques).
 
-## Building
+Sécurité : Authentification JWT avec gestion fine des permissions (RBAC).
 
-To build the project run:
+☁️ Services AWS Utilisés :
+AWS EC2 : Hébergement de l'instance Backend et Frontend.
 
-```bash
-ng build
-```
+AWS S3 : Stockage des fichiers (Photos de profil, supports de cours PDF, rapports).
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+AWS IAM : Gestion sécurisée des politiques d'accès aux services cloud.
 
-## Running unit tests
+🚀 Fonctionnalités Avancées
+Dashboard Dynamique : Statistiques différentes selon le rôle de l'utilisateur.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Gestion des Notes : Calcul automatique des moyennes et génération de rapports.
 
-```bash
-ng test
-```
+Stockage de Fichiers : Upload et téléchargement sécurisés via S3.
 
-## Running end-to-end tests
+Système de Sécurité : Protection des routes et chiffrement des données sensibles.
 
-For end-to-end (e2e) testing, run:
 
-```bash
-ng e2e
-```
+<img width="1038" height="808" alt="Screenshot 2026-03-06 181607" src="https://github.com/user-attachments/assets/024e49f9-c104-4c01-ba73-d1ab17cd9659" />
+<img width="1903" height="916" alt="Screenshot 2026-03-06 181039" src="https://github.com/user-attachments/assets/bcdd1e65-b1df-4b95-b71b-6b4fee3ff7f7" />
+<img width="1503" height="686" alt="Screenshot 2026-03-06 180356" src="https://github.com/user-attachments/assets/ee2efe9f-d522-49d8-b117-a0739548f3da" />
+<img width="974" height="692" alt="Screenshot 2026-03-06 181726" src="https://github.com/user-attachments/assets/3f9d1912-6dff-4eca-ac78-d0588b1c08de" />
+<img width="974" height="692" alt="Screenshot 2026-03-06 181726" src="https://github.com/user-attachments/assets/2e682fb5-2240-4385-9ba0-efd8db5829e9" />
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
