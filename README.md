@@ -4,6 +4,8 @@ Une plateforme ERP éducative complète conçue pour digitaliser la gestion des 
 🌐 Démo en Direct
 L'application est déployée et accessible ici :
 <http://3.82.4.2:3000/>
+
+
 🌟 Points Forts du Projet
 Architecture Multi-Rôles (RBAC) :
 
