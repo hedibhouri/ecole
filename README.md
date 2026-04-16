@@ -1,8 +1,12 @@
 🏫 Private School Management System (ERP)
 Une plateforme ERP éducative complète conçue pour digitaliser la gestion des établissements scolaires. Ce projet propose une gestion multi-utilisateurs complexe et une infrastructure Cloud robuste.
 
+🌐 Démo en Direct
+L'application est déployée et accessible ici :
+👉 Accéder à la plateforme
+
 🌟 Points Forts du Projet
-Architecture Multi-Rôles (4 Rôles) :
+Architecture Multi-Rôles (RBAC) :
 
 Admin : Contrôle total, gestion des utilisateurs, des classes et des ressources.
 
